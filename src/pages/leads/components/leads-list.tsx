@@ -1,10 +1,12 @@
-import { Info } from 'lucide-react'
+import { FileText } from 'lucide-react'
 import { useMemo, useState } from 'react'
 
 import { Loader } from '~/components/loader'
 import { Badge } from '~/components/ui/badge'
 import { Button } from '~/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '~/components/ui/card'
+import { EmptyState } from '~/components/ui/empty-state'
+import { ErrorState } from '~/components/ui/error-state'
 import { Input } from '~/components/ui/input'
 import { Pagination } from '~/components/ui/pagination'
 import {
@@ -82,22 +84,24 @@ export const LeadsList = ({
 
     if (error) {
       return (
-        <div className="flex w-full flex-col items-center justify-center py-8 text-center">
-          <Info className="mb-2 h-4 w-4 text-base-gray-400" />
-          <p className="mb-4 text-base-gray-400">{error}</p>
-          <Button variant="outline" onClick={() => window.location.reload()}>
-            Try Again
-          </Button>
-        </div>
+        <ErrorState
+          description={error}
+          onRetry={() => window.location.reload()}
+        />
       )
     }
 
     if (leads.length === 0) {
       return (
-        <div className="flex w-full flex-col items-center justify-center py-8 text-center">
-          <div className="mb-2 text-base-gray-400">📋</div>
-          <p className="text-base-gray-400">No leads found</p>
-        </div>
+        <EmptyState
+          icon={FileText}
+          title="No leads found"
+          description={
+            searchQuery || statusFilter !== 'All'
+              ? 'Try adjusting your search or filter criteria.'
+              : 'No leads available. Create your first lead to get started.'
+          }
+        />
       )
     }
 
@@ -204,9 +208,10 @@ export const LeadsList = ({
     loading,
     error,
     leads,
-    onCreateOpportunity,
-    setSelectedLead,
+    searchQuery,
+    statusFilter,
     hasOpportunityForLead,
+    onCreateOpportunity,
   ])
 
   return (

@@ -1,8 +1,9 @@
-import { MoreHorizontal, Plus } from 'lucide-react'
+import { MoreHorizontal, Plus, Target } from 'lucide-react'
 import { useMemo, useState } from 'react'
 
 import { Button } from '~/components/ui/button'
 import { Card, CardContent } from '~/components/ui/card'
+import { EmptyState } from '~/components/ui/empty-state'
 import {
   Select,
   SelectContent,
@@ -84,16 +85,16 @@ export const OpportunitiesPage = () => {
       {/* Opportunities Content */}
       {filteredOpportunities.length === 0 ? (
         <Card>
-          <CardContent className="flex flex-col items-center justify-center py-12 text-center">
-            <div className="mb-4 text-6xl">🎯</div>
-            <h3 className="mb-2 text-lg font-semibold text-foreground">
-              No opportunities found
-            </h3>
-            <p className="text-base-gray-400">
-              {opportunities.length === 0
-                ? 'No opportunities created yet. Convert a lead to get started.'
-                : 'Try adjusting your search or filter criteria.'}
-            </p>
+          <CardContent>
+            <EmptyState
+              icon={Target}
+              title="No opportunities found"
+              description={
+                opportunities.length === 0
+                  ? 'No opportunities created yet. Convert a lead to get started.'
+                  : 'Try adjusting your search or filter criteria.'
+              }
+            />
           </CardContent>
         </Card>
       ) : (
