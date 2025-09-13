@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import { Lead, LeadStatus } from '~/types'
+import { Lead } from '~/types'
 
 interface LeadsOverview {
   total: number
@@ -29,16 +29,16 @@ export const useLeadsOverview = () => {
     const fetchOverview = async () => {
       try {
         setLoading(true)
-        
+
         // Fetch all leads for overview (no pagination)
         const response = await fetch(`${API_BASE_URL}/leads`)
-        
+
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`)
         }
 
         const leads: Lead[] = await response.json()
-        
+
         // Calculate overview stats
         const stats = leads.reduce(
           (acc, lead) => {
@@ -59,7 +59,7 @@ export const useLeadsOverview = () => {
             }
             return acc
           },
-          { total: 0, new: 0, contacted: 0, qualified: 0, unqualified: 0 }
+          { total: 0, new: 0, contacted: 0, qualified: 0, unqualified: 0 },
         )
 
         setOverview(stats)

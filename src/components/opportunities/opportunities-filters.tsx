@@ -1,7 +1,6 @@
 import { Filter, Grid3X3, List, Search } from 'lucide-react'
-import { useState } from 'react'
 
-import { OpportunityStage } from '../../types'
+import { OpportunityStage } from '~/types'
 
 import { Button } from '../ui/button'
 import { Input } from '../ui/input'

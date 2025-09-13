@@ -1,7 +1,7 @@
 import { MoreHorizontal } from 'lucide-react'
 
-import { Opportunity, OpportunityStage } from '../../types'
-import { useOpportunities } from '../../contexts/opportunities-provider'
+import { useOpportunities } from '~/contexts/opportunities-provider'
+import { Opportunity, OpportunityStage } from '~/types'
 
 import { Badge } from '../ui/badge'
 import { Button } from '../ui/button'
@@ -46,11 +46,11 @@ export const OpportunityCard = ({ opportunity }: OpportunityCardProps) => {
         <div className="space-y-3">
           {/* Header */}
           <div className="flex items-start justify-between">
-            <div className="flex-1 min-w-0">
-              <h3 className="font-semibold text-foreground truncate">
+            <div className="min-w-0 flex-1">
+              <h3 className="truncate font-semibold text-foreground">
                 {opportunity.name}
               </h3>
-              <p className="text-sm text-base-gray-400 truncate">
+              <p className="truncate text-sm text-base-gray-400">
                 #{opportunity.id.slice(0, 8)}
               </p>
             </div>
@@ -64,7 +64,7 @@ export const OpportunityCard = ({ opportunity }: OpportunityCardProps) => {
             <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-xs font-medium text-primary-foreground">
               {opportunity.accountName[0]}
             </div>
-            <span className="text-sm text-base-gray-300 truncate">
+            <span className="truncate text-sm text-base-gray-300">
               {opportunity.accountName}
             </span>
           </div>
@@ -80,7 +80,7 @@ export const OpportunityCard = ({ opportunity }: OpportunityCardProps) => {
                 })
               }
             >
-              <SelectTrigger className="w-32 h-8">
+              <SelectTrigger className="h-8 w-32">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>

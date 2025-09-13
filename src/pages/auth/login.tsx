@@ -2,11 +2,11 @@ import { Lock, Mail } from 'lucide-react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import businessImage from '../../assets/business.png'
-import { Button } from '../../components/ui/button'
-import { Card, CardContent } from '../../components/ui/card'
-import { Input } from '../../components/ui/input'
-import { useAuth } from '../../contexts/auth-context'
+import businessImage from '~/assets/business.png'
+import { Button } from '~/components/ui/button'
+import { Card, CardContent } from '~/components/ui/card'
+import { Input } from '~/components/ui/input'
+import { useAuth } from '~/contexts/auth-context'
 
 export const LoginPage = () => {
   const [email, setEmail] = useState('')

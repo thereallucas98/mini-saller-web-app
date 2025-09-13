@@ -1,8 +1,9 @@
 import { Info } from 'lucide-react'
 import { useMemo, useState } from 'react'
 
-import { useOpportunities } from '../../contexts/opportunities-provider'
-import { Lead, LeadStatus } from '../../types'
+import { useOpportunities } from '~/contexts/opportunities-provider'
+import { Lead, LeadStatus } from '~/types'
+
 import { Loader } from '../loader'
 import { Badge } from '../ui/badge'
 import { Button } from '../ui/button'
@@ -29,7 +30,7 @@ interface LeadsListProps {
   searchQuery: string
   statusFilter: LeadStatus | 'All'
   sortBy: 'score' | 'name' | 'company'
-  onUpdateLead: (id: string, updates: Partial<Lead>) => void
+  onUpdateLead: (id: string, updates: Partial<Lead>) => Promise<void>
   onCreateOpportunity: (
     leadId: string,
     leadName: string,

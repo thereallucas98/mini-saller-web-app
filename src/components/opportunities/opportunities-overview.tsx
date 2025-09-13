@@ -1,9 +1,8 @@
-import { TrendingUp, DollarSign, Target, CheckCircle } from 'lucide-react'
+import { CheckCircle, DollarSign, Target, TrendingUp } from 'lucide-react'
 import { useMemo } from 'react'
 
-import { useOpportunities } from '../../contexts/opportunities-provider'
+import { useOpportunities } from '~/contexts/opportunities-provider'
 
-import { Button } from '../ui/button'
 import { Card, CardContent } from '../ui/card'
 
 export const OpportunitiesOverview = () => {
@@ -12,7 +11,10 @@ export const OpportunitiesOverview = () => {
   const stats = useMemo(() => {
     const total = opportunities.length
     const won = opportunities.filter((o) => o.stage === 'Closed Won').length
-    const totalValue = opportunities.reduce((sum, o) => sum + (o.amount || 0), 0)
+    const totalValue = opportunities.reduce(
+      (sum, o) => sum + (o.amount || 0),
+      0,
+    )
     const winRate = total > 0 ? Math.round((won / total) * 100) : 0
 
     return {
@@ -82,13 +84,13 @@ export const OpportunitiesOverview = () => {
                   <div className={`rounded-full p-1.5 sm:p-2 ${item.bgColor}`}>
                     <Icon className={`h-4 w-4 sm:h-5 sm:w-5 ${item.color}`} />
                   </div>
-                  <div className="flex-1 min-w-0">
+                  <div className="min-w-0 flex-1">
                     <div
                       className={`text-sm font-bold sm:text-lg lg:text-xl ${item.color} truncate`}
                     >
                       {item.value}
                     </div>
-                    <div className="text-xs text-base-gray-300 sm:text-sm truncate">
+                    <div className="truncate text-xs text-base-gray-300 sm:text-sm">
                       {item.label}
                     </div>
                   </div>

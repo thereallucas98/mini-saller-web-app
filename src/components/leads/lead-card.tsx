@@ -1,5 +1,6 @@
-import { Lead } from '../../types'
-import { useOpportunities } from '../../contexts/opportunities-provider'
+import { useOpportunities } from '~/contexts/opportunities-provider'
+import { Lead } from '~/types'
+
 import { Badge } from '../ui/badge'
 import { Button } from '../ui/button'
 import { Card, CardContent } from '../ui/card'
@@ -7,14 +8,23 @@ import { Card, CardContent } from '../ui/card'
 interface LeadCardProps {
   lead: Lead
   onSelect: (lead: Lead) => void
-  onCreateOpportunity: (leadId: string, leadName: string, accountName: string, amount?: number) => void
+  onCreateOpportunity: (
+    leadId: string,
+    leadName: string,
+    accountName: string,
+    amount?: number,
+  ) => void
 }
 
-export const LeadCard = ({ lead, onSelect, onCreateOpportunity }: LeadCardProps) => {
+export const LeadCard = ({
+  lead,
+  onSelect,
+  onCreateOpportunity,
+}: LeadCardProps) => {
   const { hasOpportunityForLead } = useOpportunities()
   return (
-    <Card 
-      className="cursor-pointer transition-all hover:shadow-md hover:scale-[1.02]"
+    <Card
+      className="cursor-pointer transition-all hover:scale-[1.02] hover:shadow-md"
       onClick={() => onSelect(lead)}
     >
       <CardContent className="p-4">

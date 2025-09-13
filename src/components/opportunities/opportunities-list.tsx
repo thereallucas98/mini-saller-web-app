@@ -1,4 +1,5 @@
-import { Opportunity, OpportunityStage } from '../../types'
+import { Opportunity, OpportunityStage } from '~/types'
+
 import { Badge } from '../ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card'
 import {

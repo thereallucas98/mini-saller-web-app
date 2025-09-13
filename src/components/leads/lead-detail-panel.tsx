@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 
-import { Lead, LeadStatus } from '../../types'
+import { Lead, LeadStatus } from '~/types'
+
 import { Badge } from '../ui/badge'
 import { Button } from '../ui/button'
 import { Input } from '../ui/input'

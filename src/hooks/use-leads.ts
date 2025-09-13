@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
-import leadsData from '../data/leads.json'
-import { Lead, LeadStatus } from '../types'
+import leadsData from '~/data/leads.json'
+import { Lead, LeadStatus } from '~/types'
 
 export const useLeads = () => {
   const [leads, setLeads] = useState<Lead[]>([])

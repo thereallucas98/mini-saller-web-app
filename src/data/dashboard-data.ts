@@ -1,4 +1,4 @@
-import { formatCompactCurrency, formatNumber } from '../utils'
+import { formatCompactCurrency, formatNumber } from '~/utils'
 
 export interface RecentActivity {
   type: 'company' | 'contact' | 'deal' | 'lead'
