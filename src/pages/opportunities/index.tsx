@@ -1,9 +1,6 @@
 import { MoreHorizontal, Plus } from 'lucide-react'
 import { useMemo, useState } from 'react'
 
-import { OpportunitiesFilters } from '~/components/opportunities/opportunities-filters'
-import { OpportunitiesOverview } from '~/components/opportunities/opportunities-overview'
-import { OpportunityCard } from '~/components/opportunities/opportunity-card'
 import { Button } from '~/components/ui/button'
 import { Card, CardContent } from '~/components/ui/card'
 import {
@@ -15,6 +12,10 @@ import {
 } from '~/components/ui/select'
 import { useOpportunities } from '~/contexts/opportunities-provider'
 import { OpportunityStage } from '~/types'
+
+import { OpportunitiesFilters } from './components/opportunities-filters'
+import { OpportunitiesOverview } from './components/opportunities-overview'
+import { OpportunityCard } from './components/opportunity-card'
 
 export const OpportunitiesPage = () => {
   const { opportunities, updateOpportunity } = useOpportunities()

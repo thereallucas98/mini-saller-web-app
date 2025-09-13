@@ -1,9 +1,8 @@
 import { CheckCircle, DollarSign, Target, TrendingUp } from 'lucide-react'
 import { useMemo } from 'react'
 
+import { Card, CardContent } from '~/components/ui/card'
 import { useOpportunities } from '~/contexts/opportunities-provider'
-
-import { Card, CardContent } from '../ui/card'
 
 export const OpportunitiesOverview = () => {
   const { opportunities } = useOpportunities()

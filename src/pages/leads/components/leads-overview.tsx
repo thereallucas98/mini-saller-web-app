@@ -1,9 +1,8 @@
 import { TrendingUp, UserCheck, UserPlus, Users, UserX } from 'lucide-react'
 import { useMemo } from 'react'
 
+import { Card, CardContent } from '~/components/ui/card'
 import { useLeadsOverview } from '~/hooks/use-leads-overview'
-
-import { Card, CardContent } from '../ui/card'
 
 export const LeadsOverview = () => {
   const { overview, loading } = useLeadsOverview()

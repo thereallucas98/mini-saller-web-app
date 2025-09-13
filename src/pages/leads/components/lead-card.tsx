@@ -1,9 +1,8 @@
+import { Badge } from '~/components/ui/badge'
+import { Button } from '~/components/ui/button'
+import { Card, CardContent } from '~/components/ui/card'
 import { useOpportunities } from '~/contexts/opportunities-provider'
 import { Lead } from '~/types'
-
-import { Badge } from '../ui/badge'
-import { Button } from '../ui/button'
-import { Card, CardContent } from '../ui/card'
 
 interface LeadCardProps {
   lead: Lead

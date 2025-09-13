@@ -1,22 +1,22 @@
 import { Info } from 'lucide-react'
 import { useMemo, useState } from 'react'
 
-import { useOpportunities } from '~/contexts/opportunities-provider'
-import { Lead, LeadStatus } from '~/types'
-
-import { Loader } from '../loader'
-import { Badge } from '../ui/badge'
-import { Button } from '../ui/button'
-import { Card, CardContent, CardHeader, CardTitle } from '../ui/card'
-import { Input } from '../ui/input'
-import { Pagination } from '../ui/pagination'
+import { Loader } from '~/components/loader'
+import { Badge } from '~/components/ui/badge'
+import { Button } from '~/components/ui/button'
+import { Card, CardContent, CardHeader, CardTitle } from '~/components/ui/card'
+import { Input } from '~/components/ui/input'
+import { Pagination } from '~/components/ui/pagination'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '../ui/select'
+} from '~/components/ui/select'
+import { useOpportunities } from '~/contexts/opportunities-provider'
+import { Lead, LeadStatus } from '~/types'
+
 import { LeadCard } from './lead-card'
 import { LeadDetailPanel } from './lead-detail-panel'
 

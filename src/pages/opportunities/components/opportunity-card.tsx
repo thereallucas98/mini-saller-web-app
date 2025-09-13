@@ -1,18 +1,17 @@
 import { MoreHorizontal } from 'lucide-react'
 
-import { useOpportunities } from '~/contexts/opportunities-provider'
-import { Opportunity, OpportunityStage } from '~/types'
-
-import { Badge } from '../ui/badge'
-import { Button } from '../ui/button'
-import { Card, CardContent } from '../ui/card'
+import { Badge } from '~/components/ui/badge'
+import { Button } from '~/components/ui/button'
+import { Card, CardContent } from '~/components/ui/card'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '../ui/select'
+} from '~/components/ui/select'
+import { useOpportunities } from '~/contexts/opportunities-provider'
+import { Opportunity, OpportunityStage } from '~/types'
 
 interface OpportunityCardProps {
   opportunity: Opportunity

@@ -1,17 +1,15 @@
 import { useEffect, useState } from 'react'
 
-import { Lead, LeadStatus } from '~/types'
-
-import { Badge } from '../ui/badge'
-import { Button } from '../ui/button'
-import { Input } from '../ui/input'
+import { Badge } from '~/components/ui/badge'
+import { Button } from '~/components/ui/button'
+import { Input } from '~/components/ui/input'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '../ui/select'
+} from '~/components/ui/select'
 import {
   Sheet,
   SheetContent,
@@ -19,7 +17,8 @@ import {
   SheetFooter,
   SheetHeader,
   SheetTitle,
-} from '../ui/sheet'
+} from '~/components/ui/sheet'
+import { Lead, LeadStatus } from '~/types'
 
 interface LeadDetailPanelProps {
   lead: Lead

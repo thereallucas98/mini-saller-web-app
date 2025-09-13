@@ -1,13 +1,14 @@
 import { Plus } from 'lucide-react'
 import { useCallback, useEffect, useState } from 'react'
 
-import { LeadsList } from '~/components/leads/leads-list'
-import { LeadsOverview } from '~/components/leads/leads-overview'
 import { Button } from '~/components/ui/button'
 import { useOpportunities } from '~/contexts/opportunities-provider'
 import { useLeadsApi } from '~/hooks/use-leads-api'
 import { useLeadsUrlParams } from '~/hooks/use-leads-url-params'
 import { Lead } from '~/types'
+
+import { LeadsList } from './components/leads-list'
+import { LeadsOverview } from './components/leads-overview'
 
 export const LeadsPage = () => {
   const {

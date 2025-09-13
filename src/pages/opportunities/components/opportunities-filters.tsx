@@ -1,16 +1,15 @@
 import { Filter, Grid3X3, List, Search } from 'lucide-react'
 
-import { OpportunityStage } from '~/types'
-
-import { Button } from '../ui/button'
-import { Input } from '../ui/input'
+import { Button } from '~/components/ui/button'
+import { Input } from '~/components/ui/input'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '../ui/select'
+} from '~/components/ui/select'
+import { OpportunityStage } from '~/types'
 
 interface OpportunitiesFiltersProps {
   viewMode: 'grid' | 'list'
