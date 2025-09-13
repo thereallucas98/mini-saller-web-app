@@ -1,0 +1,905 @@
+{
+  "leads": [
+    {
+      "id": "1",
+      "name": "João Silva",
+      "company": "TechCorp Solutions",
+      "email": "joao.silva@techcorp.com",
+      "source": "Website",
+      "score": 85,
+      "status": "New"
+    },
+    {
+      "id": "2",
+      "name": "Maria Santos",
+      "company": "InnovateLab",
+      "email": "maria.santos@innovatelab.com",
+      "source": "Referral",
+      "score": 92,
+      "status": "Qualified"
+    },
+    {
+      "id": "3",
+      "name": "Pedro Costa",
+      "company": "DigitalFlow",
+      "email": "pedro.costa@digitalflow.com",
+      "source": "Cold Call",
+      "score": 67,
+      "status": "New"
+    },
+    {
+      "id": "4",
+      "name": "Ana Oliveira",
+      "company": "CloudTech",
+      "email": "ana.oliveira@cloudtech.com",
+      "source": "Website",
+      "score": 78,
+      "status": "Contacted"
+    },
+    {
+      "id": "5",
+      "name": "Carlos Mendes",
+      "company": "DataSync",
+      "email": "carlos.mendes@datasync.com",
+      "source": "LinkedIn",
+      "score": 88,
+      "status": "Qualified"
+    },
+    {
+      "id": "6",
+      "name": "Lucia Ferreira",
+      "company": "SmartSystems",
+      "email": "lucia.ferreira@smartsystems.com",
+      "source": "Website",
+      "score": 73,
+      "status": "New"
+    },
+    {
+      "id": "7",
+      "name": "Roberto Alves",
+      "company": "FutureTech",
+      "email": "roberto.alves@futuretech.com",
+      "source": "Referral",
+      "score": 95,
+      "status": "Qualified"
+    },
+    {
+      "id": "8",
+      "name": "Fernanda Lima",
+      "company": "AgileSoft",
+      "email": "fernanda.lima@agilesoft.com",
+      "source": "Cold Call",
+      "score": 61,
+      "status": "New"
+    },
+    {
+      "id": "9",
+      "name": "Marcos Pereira",
+      "company": "NextGen Solutions",
+      "email": "marcos.pereira@nextgen.com",
+      "source": "Website",
+      "score": 82,
+      "status": "Contacted"
+    },
+    {
+      "id": "10",
+      "name": "Patricia Souza",
+      "company": "InnovationHub",
+      "email": "patricia.souza@innovationhub.com",
+      "source": "LinkedIn",
+      "score": 89,
+      "status": "Qualified"
+    },
+    {
+      "id": "11",
+      "name": "Rafael Martins",
+      "company": "TechFlow Inc",
+      "email": "rafael.martins@techflow.com",
+      "source": "Website",
+      "score": 76,
+      "status": "New"
+    },
+    {
+      "id": "12",
+      "name": "Camila Rodrigues",
+      "company": "DataVision",
+      "email": "camila.rodrigues@datavision.com",
+      "source": "Referral",
+      "score": 91,
+      "status": "Qualified"
+    },
+    {
+      "id": "13",
+      "name": "Diego Souza",
+      "company": "CloudSync",
+      "email": "diego.souza@cloudsync.com",
+      "source": "Cold Call",
+      "score": 64,
+      "status": "New"
+    },
+    {
+      "id": "14",
+      "name": "Juliana Costa",
+      "company": "InnovateSoft",
+      "email": "juliana.costa@innovatesoft.com",
+      "source": "LinkedIn",
+      "score": 87,
+      "status": "Contacted"
+    },
+    {
+      "id": "15",
+      "name": "Bruno Oliveira",
+      "company": "TechSolutions",
+      "email": "bruno.oliveira@techsolutions.com",
+      "source": "Website",
+      "score": 79,
+      "status": "Qualified"
+    },
+    {
+      "id": "16",
+      "name": "Larissa Almeida",
+      "company": "DigitalCore",
+      "email": "larissa.almeida@digitalcore.com",
+      "source": "Referral",
+      "score": 83,
+      "status": "New"
+    },
+    {
+      "id": "17",
+      "name": "Gabriel Lima",
+      "company": "FutureSystems",
+      "email": "gabriel.lima@futuresystems.com",
+      "source": "Cold Call",
+      "score": 72,
+      "status": "Contacted"
+    },
+    {
+      "id": "18",
+      "name": "Mariana Santos",
+      "company": "CloudTech Pro",
+      "email": "mariana.santos@cloudtechpro.com",
+      "source": "Website",
+      "score": 86,
+      "status": "Qualified"
+    },
+    {
+      "id": "19",
+      "name": "Thiago Pereira",
+      "company": "DataFlow",
+      "email": "thiago.pereira@dataflow.com",
+      "source": "LinkedIn",
+      "score": 74,
+      "status": "New"
+    },
+    {
+      "id": "20",
+      "name": "Beatriz Ferreira",
+      "company": "TechInnovate",
+      "email": "beatriz.ferreira@techinnovate.com",
+      "source": "Referral",
+      "score": 90,
+      "status": "Qualified"
+    },
+    {
+      "id": "21",
+      "name": "Lucas Mendes",
+      "company": "SmartTech",
+      "email": "lucas.mendes@smarttech.com",
+      "source": "Website",
+      "score": 77,
+      "status": "New"
+    },
+    {
+      "id": "22",
+      "name": "Isabella Costa",
+      "company": "CloudSolutions",
+      "email": "isabella.costa@cloudsolutions.com",
+      "source": "Cold Call",
+      "score": 68,
+      "status": "Contacted"
+    },
+    {
+      "id": "23",
+      "name": "Felipe Rodrigues",
+      "company": "DigitalWorks",
+      "email": "felipe.rodrigues@digitalworks.com",
+      "source": "LinkedIn",
+      "score": 85,
+      "status": "Qualified"
+    },
+    {
+      "id": "24",
+      "name": "Amanda Silva",
+      "company": "TechCore",
+      "email": "amanda.silva@techcore.com",
+      "source": "Website",
+      "score": 81,
+      "status": "New"
+    },
+    {
+      "id": "25",
+      "name": "Henrique Alves",
+      "company": "DataSync Pro",
+      "email": "henrique.alves@datasyncpro.com",
+      "source": "Referral",
+      "score": 88,
+      "status": "Qualified"
+    },
+    {
+      "id": "26",
+      "name": "Carolina Oliveira",
+      "company": "InnovateCore",
+      "email": "carolina.oliveira@innovatecore.com",
+      "source": "Website",
+      "score": 75,
+      "status": "New"
+    },
+    {
+      "id": "27",
+      "name": "Gustavo Santos",
+      "company": "CloudFlow",
+      "email": "gustavo.santos@cloudflow.com",
+      "source": "Cold Call",
+      "score": 69,
+      "status": "Contacted"
+    },
+    {
+      "id": "28",
+      "name": "Natália Lima",
+      "company": "TechVision",
+      "email": "natalia.lima@techvision.com",
+      "source": "LinkedIn",
+      "score": 84,
+      "status": "Qualified"
+    },
+    {
+      "id": "29",
+      "name": "Rodrigo Martins",
+      "company": "DigitalCore Pro",
+      "email": "rodrigo.martins@digitalcorepro.com",
+      "source": "Website",
+      "score": 78,
+      "status": "New"
+    },
+    {
+      "id": "30",
+      "name": "Vanessa Souza",
+      "company": "SmartSolutions",
+      "email": "vanessa.souza@smartsolutions.com",
+      "source": "Referral",
+      "score": 92,
+      "status": "Qualified"
+    },
+    {
+      "id": "31",
+      "name": "André Costa",
+      "company": "CloudTech Solutions",
+      "email": "andre.costa@cloudtechsolutions.com",
+      "source": "Website",
+      "score": 76,
+      "status": "New"
+    },
+    {
+      "id": "32",
+      "name": "Renata Almeida",
+      "company": "DataFlow Pro",
+      "email": "renata.almeida@dataflowpro.com",
+      "source": "Cold Call",
+      "score": 71,
+      "status": "Contacted"
+    },
+    {
+      "id": "33",
+      "name": "Vinícius Pereira",
+      "company": "TechInnovate Pro",
+      "email": "vinicius.pereira@techinnovatepro.com",
+      "source": "LinkedIn",
+      "score": 87,
+      "status": "Qualified"
+    },
+    {
+      "id": "34",
+      "name": "Priscila Ferreira",
+      "company": "DigitalWorks Pro",
+      "email": "priscila.ferreira@digitalworkspro.com",
+      "source": "Website",
+      "score": 80,
+      "status": "New"
+    },
+    {
+      "id": "35",
+      "name": "Eduardo Mendes",
+      "company": "CloudCore",
+      "email": "eduardo.mendes@cloudcore.com",
+      "source": "Referral",
+      "score": 89,
+      "status": "Qualified"
+    },
+    {
+      "id": "36",
+      "name": "Fernanda Rodrigues",
+      "company": "TechSolutions Pro",
+      "email": "fernanda.rodrigues@techsolutionspro.com",
+      "source": "Website",
+      "score": 73,
+      "status": "New"
+    },
+    {
+      "id": "37",
+      "name": "Marcelo Silva",
+      "company": "DataVision Pro",
+      "email": "marcelo.silva@datavisionpro.com",
+      "source": "Cold Call",
+      "score": 66,
+      "status": "Contacted"
+    },
+    {
+      "id": "38",
+      "name": "Cristina Lima",
+      "company": "InnovateSoft Pro",
+      "email": "cristina.lima@innovatesoftpro.com",
+      "source": "LinkedIn",
+      "score": 86,
+      "status": "Qualified"
+    },
+    {
+      "id": "39",
+      "name": "Leandro Oliveira",
+      "company": "TechFlow Solutions",
+      "email": "leandro.oliveira@techflowsolutions.com",
+      "source": "Website",
+      "score": 79,
+      "status": "New"
+    },
+    {
+      "id": "40",
+      "name": "Sandra Costa",
+      "company": "CloudSync Pro",
+      "email": "sandra.costa@cloudsyncpro.com",
+      "source": "Referral",
+      "score": 91,
+      "status": "Qualified"
+    },
+    {
+      "id": "41",
+      "name": "Alexandre Santos",
+      "company": "DigitalCore Solutions",
+      "email": "alexandre.david@digitalcoresolutions.com",
+      "source": "Website",
+      "score": 74,
+      "status": "New"
+    },
+    {
+      "id": "42",
+      "name": "Monica Alves",
+      "company": "FutureTech Pro",
+      "email": "monica.alves@futuretechpro.com",
+      "source": "Cold Call",
+      "score": 70,
+      "status": "Contacted"
+    },
+    {
+      "id": "43",
+      "name": "Ricardo Martins",
+      "company": "SmartSystems Pro",
+      "email": "ricardo.martins@smartsystemspro.com",
+      "source": "LinkedIn",
+      "score": 85,
+      "status": "Qualified"
+    },
+    {
+      "id": "44",
+      "name": "Tatiana Souza",
+      "company": "AgileSoft Pro",
+      "email": "tatiana.souza@agilesoftpro.com",
+      "source": "Website",
+      "score": 77,
+      "status": "New"
+    },
+    {
+      "id": "45",
+      "name": "Fabio Pereira",
+      "company": "NextGen Solutions Pro",
+      "email": "fabio.pereira@nextgensolutionspro.com",
+      "source": "Referral",
+      "score": 88,
+      "status": "Qualified"
+    },
+    {
+      "id": "46",
+      "name": "Luciana Ferreira",
+      "company": "InnovationHub Pro",
+      "email": "luciana.ferreira@innovationhubpro.com",
+      "source": "Website",
+      "score": 82,
+      "status": "New"
+    },
+    {
+      "id": "47",
+      "name": "Paulo Rodrigues",
+      "company": "TechCorp Pro",
+      "email": "paulo.rodrigues@techcorppro.com",
+      "source": "Cold Call",
+      "score": 65,
+      "status": "Contacted"
+    },
+    {
+      "id": "48",
+      "name": "Adriana Lima",
+      "company": "InnovateLab Pro",
+      "email": "adriana.lima@innovatelabpro.com",
+      "source": "LinkedIn",
+      "score": 90,
+      "status": "Qualified"
+    },
+    {
+      "id": "49",
+      "name": "Roberto Costa",
+      "company": "DigitalFlow Pro",
+      "email": "roberto.costa@digitalflowpro.com",
+      "source": "Website",
+      "score": 75,
+      "status": "New"
+    },
+    {
+      "id": "50",
+      "name": "Silvia Almeida",
+      "company": "CloudTech Solutions Pro",
+      "email": "silvia.almeida@cloudtechsolutionspro.com",
+      "source": "Referral",
+      "score": 87,
+      "status": "Qualified"
+    },
+    {
+      "id": "51",
+      "name": "Antonio Silva",
+      "company": "DataSync Solutions",
+      "email": "antonio.silva@datasyncsolutions.com",
+      "source": "Website",
+      "score": 78,
+      "status": "New"
+    },
+    {
+      "id": "52",
+      "name": "Lucia Santos",
+      "company": "SmartSystems Solutions",
+      "email": "lucia.santos@smartsystemssolutions.com",
+      "source": "Cold Call",
+      "score": 72,
+      "status": "Contacted"
+    },
+    {
+      "id": "53",
+      "name": "Jose Oliveira",
+      "company": "FutureTech Solutions",
+      "email": "jose.oliveira@futuretechsolutions.com",
+      "source": "LinkedIn",
+      "score": 84,
+      "status": "Qualified"
+    },
+    {
+      "id": "54",
+      "name": "Rosa Mendes",
+      "company": "AgileSoft Solutions",
+      "email": "rosa.mendes@agilesoftsolutions.com",
+      "source": "Website",
+      "score": 76,
+      "status": "New"
+    },
+    {
+      "id": "55",
+      "name": "Manuel Costa",
+      "company": "NextGen Solutions Core",
+      "email": "manuel.costa@nextgensolutionscore.com",
+      "source": "Referral",
+      "score": 89,
+      "status": "Qualified"
+    },
+    {
+      "id": "56",
+      "name": "Carmen Rodrigues",
+      "company": "InnovationHub Solutions",
+      "email": "carmen.rodrigues@innovationhubsolutions.com",
+      "source": "Website",
+      "score": 81,
+      "status": "New"
+    },
+    {
+      "id": "57",
+      "name": "Francisco Lima",
+      "company": "TechCorp Solutions Pro",
+      "email": "francisco.lima@techcorpsolutionspro.com",
+      "source": "Cold Call",
+      "score": 68,
+      "status": "Contacted"
+    },
+    {
+      "id": "58",
+      "name": "Isabel Ferreira",
+      "company": "InnovateLab Solutions",
+      "email": "isabel.ferreira@innovatelabsolutions.com",
+      "source": "LinkedIn",
+      "score": 86,
+      "status": "Qualified"
+    },
+    {
+      "id": "59",
+      "name": "Miguel Alves",
+      "company": "DigitalFlow Solutions",
+      "email": "miguel.alves@digitalflowsolutions.com",
+      "source": "Website",
+      "score": 74,
+      "status": "New"
+    },
+    {
+      "id": "60",
+      "name": "Conceição Souza",
+      "company": "CloudTech Core",
+      "email": "conceicao.souza@cloudtechcore.com",
+      "source": "Referral",
+      "score": 92,
+      "status": "Qualified"
+    },
+    {
+      "id": "61",
+      "name": "Carlos Martins",
+      "company": "DataSync Core",
+      "email": "carlos.martins@datasynccore.com",
+      "source": "Website",
+      "score": 77,
+      "status": "New"
+    },
+    {
+      "id": "62",
+      "name": "Maria Pereira",
+      "company": "SmartSystems Core",
+      "email": "maria.pereira@smartsystemscore.com",
+      "source": "Cold Call",
+      "score": 71,
+      "status": "Contacted"
+    },
+    {
+      "id": "63",
+      "name": "João Almeida",
+      "company": "FutureTech Core",
+      "email": "joao.almeida@futuretechcore.com",
+      "source": "LinkedIn",
+      "score": 85,
+      "status": "Qualified"
+    },
+    {
+      "id": "64",
+      "name": "Ana Rodrigues",
+      "company": "AgileSoft Core",
+      "email": "ana.rodrigues@agilesoftcore.com",
+      "source": "Website",
+      "score": 79,
+      "status": "New"
+    },
+    {
+      "id": "65",
+      "name": "Pedro Silva",
+      "company": "NextGen Core",
+      "email": "pedro.silva@nextgencore.com",
+      "source": "Referral",
+      "score": 88,
+      "status": "Qualified"
+    },
+    {
+      "id": "66",
+      "name": "Lucia Costa",
+      "company": "InnovationHub Core",
+      "email": "lucia.costa@innovationhubcore.com",
+      "source": "Website",
+      "score": 73,
+      "status": "New"
+    },
+    {
+      "id": "67",
+      "name": "Roberto Lima",
+      "company": "TechCorp Core",
+      "email": "roberto.lima@techcorpcore.com",
+      "source": "Cold Call",
+      "score": 69,
+      "status": "Contacted"
+    },
+    {
+      "id": "68",
+      "name": "Fernanda Santos",
+      "company": "InnovateLab Core",
+      "email": "fernanda.santos@innovatelabcore.com",
+      "source": "LinkedIn",
+      "score": 87,
+      "status": "Qualified"
+    },
+    {
+      "id": "69",
+      "name": "Marcos Oliveira",
+      "company": "DigitalFlow Core",
+      "email": "marcos.oliveira@digitalflowcore.com",
+      "source": "Website",
+      "score": 75,
+      "status": "New"
+    },
+    {
+      "id": "70",
+      "name": "Patricia Mendes",
+      "company": "CloudTech Advanced",
+      "email": "patricia.mendes@cloudtechadvanced.com",
+      "source": "Referral",
+      "score": 91,
+      "status": "Qualified"
+    },
+    {
+      "id": "71",
+      "name": "Rafael Ferreira",
+      "company": "DataSync Advanced",
+      "email": "rafael.ferreira@datasyncadvanced.com",
+      "source": "Website",
+      "score": 78,
+      "status": "New"
+    },
+    {
+      "id": "72",
+      "name": "Camila Alves",
+      "company": "SmartSystems Advanced",
+      "email": "camila.alves@smartsystemsadvanced.com",
+      "source": "Cold Call",
+      "score": 72,
+      "status": "Contacted"
+    },
+    {
+      "id": "73",
+      "name": "Diego Rodrigues",
+      "company": "FutureTech Advanced",
+      "email": "diego.rodrigues@futuretechadvanced.com",
+      "source": "LinkedIn",
+      "score": 84,
+      "status": "Qualified"
+    },
+    {
+      "id": "74",
+      "name": "Juliana Souza",
+      "company": "AgileSoft Advanced",
+      "email": "juliana.souza@agilesoftadvanced.com",
+      "source": "Website",
+      "score": 76,
+      "status": "New"
+    },
+    {
+      "id": "75",
+      "name": "Bruno Martins",
+      "company": "NextGen Advanced",
+      "email": "bruno.martins@nextgenadvanced.com",
+      "source": "Referral",
+      "score": 89,
+      "status": "Qualified"
+    },
+    {
+      "id": "76",
+      "name": "Larissa Costa",
+      "company": "InnovationHub Advanced",
+      "email": "larissa.costa@innovationhubadvanced.com",
+      "source": "Website",
+      "score": 80,
+      "status": "New"
+    },
+    {
+      "id": "77",
+      "name": "Gabriel Lima",
+      "company": "TechCorp Advanced",
+      "email": "gabriel.lima@techcorpadvanced.com",
+      "source": "Cold Call",
+      "score": 67,
+      "status": "Contacted"
+    },
+    {
+      "id": "78",
+      "name": "Mariana Silva",
+      "company": "InnovateLab Advanced",
+      "email": "mariana.silva@innovatelabadvanced.com",
+      "source": "LinkedIn",
+      "score": 86,
+      "status": "Qualified"
+    },
+    {
+      "id": "79",
+      "name": "Thiago Santos",
+      "company": "DigitalFlow Advanced",
+      "email": "thiago.santos@digitalflowadvanced.com",
+      "source": "Website",
+      "score": 74,
+      "status": "New"
+    },
+    {
+      "id": "80",
+      "name": "Beatriz Oliveira",
+      "company": "CloudTech Enterprise",
+      "email": "beatriz.oliveira@cloudtechenterprise.com",
+      "source": "Referral",
+      "score": 93,
+      "status": "Qualified"
+    },
+    {
+      "id": "81",
+      "name": "Lucas Mendes",
+      "company": "DataSync Enterprise",
+      "email": "lucas.mendes@datasyncenterprise.com",
+      "source": "Website",
+      "score": 77,
+      "status": "New"
+    },
+    {
+      "id": "82",
+      "name": "Isabella Ferreira",
+      "company": "SmartSystems Enterprise",
+      "email": "isabella.ferreira@smartsystemsenterprise.com",
+      "source": "Cold Call",
+      "score": 70,
+      "status": "Contacted"
+    },
+    {
+      "id": "83",
+      "name": "Felipe Rodrigues",
+      "company": "FutureTech Enterprise",
+      "email": "felipe.rodrigues@futuretechenterprise.com",
+      "source": "LinkedIn",
+      "score": 85,
+      "status": "Qualified"
+    },
+    {
+      "id": "84",
+      "name": "Amanda Alves",
+      "company": "AgileSoft Enterprise",
+      "email": "amanda.alves@agilesoftenterprise.com",
+      "source": "Website",
+      "score": 79,
+      "status": "New"
+    },
+    {
+      "id": "85",
+      "name": "Henrique Costa",
+      "company": "NextGen Enterprise",
+      "email": "henrique.costa@nextgenenterprise.com",
+      "source": "Referral",
+      "score": 88,
+      "status": "Qualified"
+    },
+    {
+      "id": "86",
+      "name": "Carolina Lima",
+      "company": "InnovationHub Enterprise",
+      "email": "carolina.lima@innovationhubenterprise.com",
+      "source": "Website",
+      "score": 82,
+      "status": "New"
+    },
+    {
+      "id": "87",
+      "name": "Gustavo Souza",
+      "company": "TechCorp Enterprise",
+      "email": "gustavo.souza@techcorpenterprise.com",
+      "source": "Cold Call",
+      "score": 66,
+      "status": "Contacted"
+    },
+    {
+      "id": "88",
+      "name": "Natália Martins",
+      "company": "InnovateLab Enterprise",
+      "email": "natalia.martins@innovatelabenterprise.com",
+      "source": "LinkedIn",
+      "score": 87,
+      "status": "Qualified"
+    },
+    {
+      "id": "89",
+      "name": "Rodrigo Pereira",
+      "company": "DigitalFlow Enterprise",
+      "email": "rodrigo.pereira@digitalflowenterprise.com",
+      "source": "Website",
+      "score": 75,
+      "status": "New"
+    },
+    {
+      "id": "90",
+      "name": "Vanessa Silva",
+      "company": "CloudTech Global",
+      "email": "vanessa.silva@cloudtechglobal.com",
+      "source": "Referral",
+      "score": 90,
+      "status": "Qualified"
+    },
+    {
+      "id": "91",
+      "name": "André Santos",
+      "company": "DataSync Global",
+      "email": "andre.santos@datasyncglobal.com",
+      "source": "Website",
+      "score": 78,
+      "status": "New"
+    },
+    {
+      "id": "92",
+      "name": "Renata Oliveira",
+      "company": "SmartSystems Global",
+      "email": "renata.oliveira@smartsystemsglobal.com",
+      "source": "Cold Call",
+      "score": 71,
+      "status": "Contacted"
+    },
+    {
+      "id": "93",
+      "name": "Vinícius Mendes",
+      "company": "FutureTech Global",
+      "email": "vinicius.mendes@futuretechglobal.com",
+      "source": "LinkedIn",
+      "score": 84,
+      "status": "Qualified"
+    },
+    {
+      "id": "94",
+      "name": "Priscila Costa",
+      "company": "AgileSoft Global",
+      "email": "priscila.costa@agilesoftglobal.com",
+      "source": "Website",
+      "score": 76,
+      "status": "New"
+    },
+    {
+      "id": "95",
+      "name": "Eduardo Lima",
+      "company": "NextGen Global",
+      "email": "eduardo.lima@nextgenglobal.com",
+      "source": "Referral",
+      "score": 89,
+      "status": "Qualified"
+    },
+    {
+      "id": "96",
+      "name": "Fernanda Rodrigues",
+      "company": "InnovationHub Global",
+      "email": "fernanda.rodrigues@innovationhubglobal.com",
+      "source": "Website",
+      "score": 81,
+      "status": "New"
+    },
+    {
+      "id": "97",
+      "name": "Marcelo Ferreira",
+      "company": "TechCorp Global",
+      "email": "marcelo.ferreira@techcorpglobal.com",
+      "source": "Cold Call",
+      "score": 68,
+      "status": "Contacted"
+    },
+    {
+      "id": "98",
+      "name": "Cristina Alves",
+      "company": "InnovateLab Global",
+      "email": "cristina.alves@innovatelabglobal.com",
+      "source": "LinkedIn",
+      "score": 86,
+      "status": "Qualified"
+    },
+    {
+      "id": "99",
+      "name": "Leandro Souza",
+      "company": "DigitalFlow Global",
+      "email": "leandro.souza@digitalflowglobal.com",
+      "source": "Website",
+      "score": 73,
+      "status": "New"
+    },
+    {
+      "id": "100",
+      "name": "Sandra Martins",
+      "company": "CloudTech Ultimate",
+      "email": "sandra.martins@cloudtechultimate.com",
+      "source": "Referral",
+      "score": 94,
+      "status": "Qualified"
+    }
+  ],
+  "opportunities": []
+}
