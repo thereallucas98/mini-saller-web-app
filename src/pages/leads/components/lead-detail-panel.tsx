@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 
 import { Badge } from '~/components/ui/badge'
 import { Button } from '~/components/ui/button'
+import { Form, FormError, FormFieldset, FormLabel } from '~/components/ui/form'
 import { Input } from '~/components/ui/input'
 import {
   Select,
@@ -18,6 +19,7 @@ import {
   SheetHeader,
   SheetTitle,
 } from '~/components/ui/sheet'
+import { type LeadFormData, useLeadForm } from '~/hooks/use-lead-form'
 import { Lead, LeadStatus } from '~/types'
 
 interface LeadDetailPanelProps {
@@ -32,29 +34,23 @@ export const LeadDetailPanel = ({
   onUpdateLead,
 }: LeadDetailPanelProps) => {
   const [isEditing, setIsEditing] = useState(false)
-  const [editedLead, setEditedLead] = useState(lead)
-  const [emailError, setEmailError] = useState<string | null>(null)
+  const { form } = useLeadForm({
+    email: lead.email,
+    status: lead.status,
+  })
 
-  // Update editedLead when lead prop changes
+  // Update form when lead prop changes
   useEffect(() => {
-    setEditedLead(lead)
-  }, [lead])
+    form.reset({
+      email: lead.email,
+      status: lead.status,
+    })
+  }, [lead.id, lead.email, lead.status, form]) // More specific dependencies
 
-  const validateEmail = (email: string) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    return emailRegex.test(email)
-  }
-
-  const handleSave = async () => {
-    if (editedLead.email && !validateEmail(editedLead.email)) {
-      setEmailError('Please enter a valid email address')
-      return
-    }
-
+  const onSubmit = async (data: LeadFormData) => {
     try {
-      await onUpdateLead(lead.id, editedLead)
+      await onUpdateLead(lead.id, data)
       setIsEditing(false)
-      setEmailError(null)
       onClose() // Close the panel after successful update
     } catch (err) {
       console.error('Failed to save lead:', err)
@@ -63,18 +59,11 @@ export const LeadDetailPanel = ({
   }
 
   const handleCancel = () => {
-    setEditedLead(lead)
+    form.reset({
+      email: lead.email,
+      status: lead.status,
+    })
     setIsEditing(false)
-    setEmailError(null)
-  }
-
-  const handleEmailChange = (email: string) => {
-    setEditedLead((prev) => ({ ...prev, email }))
-    if (email && !validateEmail(email)) {
-      setEmailError('Please enter a valid email address')
-    } else {
-      setEmailError(null)
-    }
   }
 
   return (
@@ -87,94 +76,31 @@ export const LeadDetailPanel = ({
           </SheetDescription>
         </SheetHeader>
 
-        <div className="space-y-6 p-6">
-          {/* Name */}
-          <div>
-            <label className="text-sm font-medium text-base-gray-300">
-              Name
-            </label>
-            <div className="mt-1 rounded border border-border bg-background-secondary p-3">
-              <span className="text-foreground">{lead.name}</span>
-            </div>
-          </div>
-
-          {/* Company */}
-          <div>
-            <label className="text-sm font-medium text-base-gray-300">
-              Company
-            </label>
-            <div className="mt-1 rounded border border-border bg-background-secondary p-3">
-              <span className="text-foreground">{lead.company}</span>
-            </div>
-          </div>
-
-          {/* Email */}
-          <div>
-            <label className="text-sm font-medium text-base-gray-300">
-              Email
-            </label>
-            {isEditing ? (
-              <div className="mt-1">
+        <div className="p-6">
+          {isEditing ? (
+            <Form id="lead-form" onSubmit={form.handleSubmit(onSubmit)}>
+              {/* Email Field */}
+              <FormFieldset>
+                <FormLabel htmlFor="email">Email</FormLabel>
                 <Input
-                  value={editedLead.email}
-                  onChange={(e) => handleEmailChange(e.target.value)}
-                  className={emailError ? 'border-destructive' : ''}
+                  id="email"
+                  type="email"
+                  placeholder="Email"
+                  className="border-border bg-background-secondary"
+                  {...form.register('email')}
                 />
-                {emailError && (
-                  <p className="mt-1 text-sm text-destructive">{emailError}</p>
+                {form.formState.errors.email && (
+                  <FormError>{form.formState.errors.email.message}</FormError>
                 )}
-              </div>
-            ) : (
-              <div className="mt-1 rounded border border-border bg-background-secondary p-3">
-                <span className="text-foreground">{lead.email}</span>
-              </div>
-            )}
-          </div>
+              </FormFieldset>
 
-          {/* Source */}
-          <div>
-            <label className="text-sm font-medium text-base-gray-300">
-              Source
-            </label>
-            <div className="mt-1 rounded border border-border bg-background-secondary p-3">
-              <span className="text-foreground">{lead.source}</span>
-            </div>
-          </div>
-
-          {/* Score */}
-          <div>
-            <label className="text-sm font-medium text-base-gray-300">
-              Score
-            </label>
-            <div className="mt-1">
-              <Badge
-                variant={
-                  lead.score >= 80
-                    ? 'default'
-                    : lead.score >= 60
-                      ? 'secondary'
-                      : 'destructive'
-                }
-              >
-                {lead.score}
-              </Badge>
-            </div>
-          </div>
-
-          {/* Status */}
-          <div>
-            <label className="text-sm font-medium text-base-gray-300">
-              Status
-            </label>
-            {isEditing ? (
-              <div className="mt-1">
+              {/* Status Field */}
+              <FormFieldset>
+                <FormLabel htmlFor="status">Status</FormLabel>
                 <Select
-                  value={editedLead.status}
+                  value={form.watch('status')}
                   onValueChange={(value) =>
-                    setEditedLead((prev) => ({
-                      ...prev,
-                      status: value as LeadStatus,
-                    }))
+                    form.setValue('status', value as LeadStatus)
                   }
                 >
                   <SelectTrigger>
@@ -187,34 +113,99 @@ export const LeadDetailPanel = ({
                     <SelectItem value="Unqualified">Unqualified</SelectItem>
                   </SelectContent>
                 </Select>
-              </div>
-            ) : (
-              <div className="mt-1">
-                <Badge
-                  variant={
-                    lead.status === 'Qualified'
-                      ? 'default'
-                      : lead.status === 'Contacted'
-                        ? 'secondary'
-                        : lead.status === 'New'
-                          ? 'outline'
+                {form.formState.errors.status && (
+                  <FormError>{form.formState.errors.status.message}</FormError>
+                )}
+              </FormFieldset>
+            </Form>
+          ) : (
+            <div className="space-y-6">
+              {/* Name */}
+              <FormFieldset>
+                <FormLabel>Name</FormLabel>
+                <div className="mt-1 rounded border border-border bg-background-secondary p-3">
+                  <span className="text-foreground">{lead.name}</span>
+                </div>
+              </FormFieldset>
+
+              {/* Company */}
+              <FormFieldset>
+                <FormLabel>Company</FormLabel>
+                <div className="mt-1 rounded border border-border bg-background-secondary p-3">
+                  <span className="text-foreground">{lead.company}</span>
+                </div>
+              </FormFieldset>
+
+              {/* Email */}
+              <FormFieldset>
+                <FormLabel>Email</FormLabel>
+                <div className="mt-1 rounded border border-border bg-background-secondary p-3">
+                  <span className="text-foreground">{lead.email}</span>
+                </div>
+              </FormFieldset>
+
+              {/* Source */}
+              <FormFieldset>
+                <FormLabel>Source</FormLabel>
+                <div className="mt-1 rounded border border-border bg-background-secondary p-3">
+                  <span className="text-foreground">{lead.source}</span>
+                </div>
+              </FormFieldset>
+
+              {/* Score */}
+              <FormFieldset>
+                <FormLabel>Score</FormLabel>
+                <div className="mt-1">
+                  <Badge
+                    variant={
+                      lead.score >= 80
+                        ? 'default'
+                        : lead.score >= 60
+                          ? 'secondary'
                           : 'destructive'
-                  }
-                >
-                  {lead.status}
-                </Badge>
-              </div>
-            )}
-          </div>
+                    }
+                  >
+                    {lead.score}
+                  </Badge>
+                </div>
+              </FormFieldset>
+
+              {/* Status */}
+              <FormFieldset>
+                <FormLabel>Status</FormLabel>
+                <div className="mt-1">
+                  <Badge
+                    variant={
+                      lead.status === 'Qualified'
+                        ? 'default'
+                        : lead.status === 'Contacted'
+                          ? 'secondary'
+                          : lead.status === 'New'
+                            ? 'outline'
+                            : 'destructive'
+                    }
+                  >
+                    {lead.status}
+                  </Badge>
+                </div>
+              </FormFieldset>
+            </div>
+          )}
         </div>
 
         <SheetFooter className="flex gap-2">
           {isEditing ? (
             <>
-              <Button onClick={handleSave} className="flex-1">
-                Save
+              <Button
+                type="submit"
+                form="lead-form"
+                className="flex-1"
+                disabled={form.formState.isSubmitting}
+              >
+                {form.formState.isSubmitting ? 'Saving...' : 'Save'}
               </Button>
               <Button
+                type="button"
                 variant="outline"
                 onClick={handleCancel}
                 className="flex-1"
@@ -223,7 +214,14 @@ export const LeadDetailPanel = ({
               </Button>
             </>
           ) : (
-            <Button onClick={() => setIsEditing(true)} className="flex-1">
+            <Button
+              type="button"
+              onClick={(e) => {
+                e.preventDefault()
+                setIsEditing(true)
+              }}
+              className="flex-1"
+            >
               Edit
             </Button>
           )}

@@ -70,7 +70,7 @@
       "email": "fernanda.lima@agilesoft.com",
       "source": "Cold Call",
       "score": 61,
-      "status": "New"
+      "status": "Qualified"
     },
     {
       "id": "9",
@@ -112,10 +112,10 @@
       "id": "13",
       "name": "Diego Souza",
       "company": "CloudSync",
-      "email": "diego.souza@cloudsync.com",
+      "email": "diego.souzas@cloudsync.com",
       "source": "Cold Call",
       "score": 64,
-      "status": "New"
+      "status": "Contacted"
     },
     {
       "id": "14",
