@@ -83,9 +83,12 @@ export const useLeadsApi = (options: UseLeadsApiOptions = {}) => {
           data = filteredLeads.slice(startIndex, endIndex)
         } else {
           // No search - use normal server-side pagination
+          const start = (page - 1) * limit
+          const end = start + limit
+
           const params = new URLSearchParams({
-            _page: page.toString(),
-            _limit: limit.toString(),
+            _start: start.toString(),
+            _end: end.toString(),
             _sort: sortBy,
             _order: sortOrder,
           })
@@ -103,8 +106,21 @@ export const useLeadsApi = (options: UseLeadsApiOptions = {}) => {
 
           data = await response.json()
 
-          // Get total count from X-Total-Count header
-          totalCount = parseInt(response.headers.get('X-Total-Count') || '0')
+          // Get total count by fetching all leads with status filter
+          const countParams = new URLSearchParams()
+          if (status !== 'All') {
+            countParams.append('status', status)
+          }
+
+          const countResponse = await fetch(
+            `${API_BASE_URL}/leads?${countParams}`,
+          )
+          if (countResponse.ok) {
+            const allLeads: Lead[] = await countResponse.json()
+            totalCount = allLeads.length
+          } else {
+            totalCount = data.length
+          }
         }
 
         const totalPagesCount = Math.ceil(totalCount / limit)
@@ -126,6 +142,18 @@ export const useLeadsApi = (options: UseLeadsApiOptions = {}) => {
   }, [page, limit, search, status, sortBy, sortOrder])
 
   const updateLead = async (id: string, updates: Partial<Lead>) => {
+    // Store original lead for rollback
+    const originalLead = leads.find((lead) => lead.id === id)
+    if (!originalLead) {
+      throw new Error('Lead not found')
+    }
+
+    // Optimistic update - update UI immediately
+    const optimisticLead = { ...originalLead, ...updates }
+    setLeads((prev) =>
+      prev.map((lead) => (lead.id === id ? optimisticLead : lead)),
+    )
+
     try {
       const response = await fetch(`${API_BASE_URL}/leads/${id}`, {
         method: 'PATCH',
@@ -141,13 +169,18 @@ export const useLeadsApi = (options: UseLeadsApiOptions = {}) => {
 
       const updatedLead = await response.json()
 
-      // Update local state
+      // Update with server response (in case server made additional changes)
       setLeads((prev) =>
         prev.map((lead) => (lead.id === id ? updatedLead : lead)),
       )
 
       return updatedLead
     } catch (err) {
+      // Rollback on failure
+      setLeads((prev) =>
+        prev.map((lead) => (lead.id === id ? originalLead : lead)),
+      )
+
       setError(err instanceof Error ? err.message : 'Failed to update lead')
       throw err
     }

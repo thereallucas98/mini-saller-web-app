@@ -50,7 +50,21 @@ export const OpportunitiesProvider = ({
       accountName,
     }
 
+    // Optimistic update - add immediately to UI
     setOpportunities((prev) => [...prev, newOpportunity])
+    
+    // Simulate API call with potential failure
+    setTimeout(() => {
+      // Simulate 10% failure rate for demonstration
+      if (Math.random() < 0.1) {
+        // Rollback on simulated failure
+        setOpportunities((prev) => 
+          prev.filter(opp => opp.id !== newOpportunity.id)
+        )
+        console.warn('Simulated API failure - opportunity creation rolled back')
+      }
+    }, 1000)
+
     return newOpportunity
   }
 

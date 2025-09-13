@@ -2,6 +2,7 @@ import { useCallback, useMemo } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
 import { LeadStatus } from '~/types'
+import { useLeadsPreferences } from './use-leads-preferences'
 
 export interface LeadsUrlParams {
   page: number
@@ -14,15 +15,15 @@ export interface LeadsUrlParams {
 
 export const useLeadsUrlParams = () => {
   const [searchParams, setSearchParams] = useSearchParams()
+  const { preferences, updatePreferences } = useLeadsPreferences()
 
-  // Parse URL parameters with defaults
+  // Parse URL parameters with localStorage fallback
   const page = parseInt(searchParams.get('page') || '1', 10)
-  const limit = parseInt(searchParams.get('limit') || '10', 10)
-  const search = searchParams.get('search') || ''
-  const status = (searchParams.get('status') as LeadStatus | 'All') || 'All'
-  const sortBy =
-    (searchParams.get('sortBy') as 'score' | 'name' | 'company') || 'score'
-  const sortOrder = (searchParams.get('sortOrder') as 'asc' | 'desc') || 'desc'
+  const limit = parseInt(searchParams.get('limit') || preferences.limit.toString(), 10)
+  const search = searchParams.get('search') || preferences.search
+  const status = (searchParams.get('status') as LeadStatus | 'All') || preferences.status
+  const sortBy = (searchParams.get('sortBy') as 'score' | 'name' | 'company') || preferences.sortBy
+  const sortOrder = (searchParams.get('sortOrder') as 'asc' | 'desc') || preferences.sortOrder
 
   const params = useMemo(
     () => ({
@@ -57,8 +58,10 @@ export const useLeadsUrlParams = () => {
         prev.set('page', '1')
         return prev
       })
+      // Save to localStorage
+      updatePreferences({ search: searchValue })
     },
-    [setSearchParams],
+    [setSearchParams, updatePreferences],
   )
 
   const handleStatusFilterChange = useCallback(
@@ -72,8 +75,10 @@ export const useLeadsUrlParams = () => {
         prev.set('page', '1')
         return prev
       })
+      // Save to localStorage
+      updatePreferences({ status: statusValue })
     },
-    [setSearchParams],
+    [setSearchParams, updatePreferences],
   )
 
   const handleSortChange = useCallback(
@@ -83,8 +88,10 @@ export const useLeadsUrlParams = () => {
         prev.set('page', '1')
         return prev
       })
+      // Save to localStorage
+      updatePreferences({ sortBy: sortByValue })
     },
-    [setSearchParams],
+    [setSearchParams, updatePreferences],
   )
 
   const handleSortOrderChange = useCallback(
@@ -94,8 +101,10 @@ export const useLeadsUrlParams = () => {
         prev.set('page', '1')
         return prev
       })
+      // Save to localStorage
+      updatePreferences({ sortOrder: sortOrderValue })
     },
-    [setSearchParams],
+    [setSearchParams, updatePreferences],
   )
 
   const resetParams = useCallback(() => {
@@ -107,7 +116,15 @@ export const useLeadsUrlParams = () => {
       prev.set('page', '1')
       return prev
     })
-  }, [setSearchParams])
+    // Reset localStorage preferences
+    updatePreferences({
+      search: '',
+      status: 'All',
+      sortBy: 'score',
+      sortOrder: 'desc',
+      limit: 10,
+    })
+  }, [setSearchParams, updatePreferences])
 
   return {
     params,
