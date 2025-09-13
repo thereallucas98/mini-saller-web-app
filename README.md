@@ -1,6 +1,6 @@
 # Mini Seller Web App
 
-A lightweight console to triage Leads and convert them into Opportunities. Built with React 19, TypeScript, and Tailwind CSS.
+A lightweight console to triage Leads and convert them into Opportunities. Built with React 19, TypeScript, and Tailwind CSS.gt
 
 ## 🚀 Quick Start
 
@@ -152,60 +152,6 @@ src/
 - **Prettier** for code formatting
 - **TypeScript** for type safety
 
-## ✅ Features Implemented
-
-### 🎯 Core MVP Requirements
-
-#### **1. Leads Management**
-- ✅ **100+ Sample Leads**: Realistic data with names, companies, emails
-- ✅ **Pagination**: Server-side pagination with 10 leads per page
-- ✅ **Search**: Real-time search by name and company
-- ✅ **Filtering**: Filter by status (New, Contacted, Qualified, Unqualified)
-- ✅ **Sorting**: Sort by score (desc), name, company
-- ✅ **Responsive Table**: Desktop table → Mobile cards
-
-#### **2. Lead Detail Panel**
-- ✅ **Responsive Panel**: Bottom sheet (mobile) → Modal (desktop)
-- ✅ **Inline Editing**: Edit email and status with validation
-- ✅ **Form Validation**: React Hook Form + Zod schema validation
-- ✅ **Save/Cancel**: Proper form state management
-
-#### **3. Convert to Opportunity**
-- ✅ **One-Click Conversion**: Transform leads into opportunities
-- ✅ **Duplicate Prevention**: Prevents multiple opportunities per lead
-- ✅ **Opportunities Management**: View and manage created opportunities
-
-#### **4. UX & States**
-- ✅ **Loading States**: Custom loader component
-- ✅ **Empty States**: Standardized with Lucide icons
-- ✅ **Error States**: Retry functionality with proper error handling
-- ✅ **Optimistic Updates**: Immediate UI updates with rollback on failure
-
-### 🚀 Advanced Features
-
-#### **📱 Responsive Design**
-- ✅ **Mobile-First**: Tailwind breakpoints (sm:, lg:)
-- ✅ **Adaptive Navigation**: TopNav (desktop) + BottomNav (mobile)
-- ✅ **Responsive Sheets**: Different behaviors for mobile/desktop
-- ✅ **Grid Layouts**: Adaptive dashboard and card layouts
-
-#### **💾 Data Persistence**
-- ✅ **localStorage**: Filter/sort preferences persist between sessions
-- ✅ **URL Parameters**: Shareable URLs with current state
-- ✅ **Hybrid Approach**: URL params + localStorage fallback
-
-#### **⚡ Performance**
-- ✅ **Debounced Search**: Prevents excessive API calls
-- ✅ **Optimistic Updates**: Immediate UI feedback
-- ✅ **Memoization**: useMemo/useCallback for performance
-- ✅ **Efficient Pagination**: Server-side with proper total count
-
-#### **🎨 Design System**
-- ✅ **Dark Theme**: Consistent color palette
-- ✅ **Shadcn/UI**: Professional component library
-- ✅ **Lucide Icons**: Consistent iconography
-- ✅ **Accessibility**: ARIA labels and keyboard navigation
-
 ## 🔧 Troubleshooting
 
 ### Common Issues
@@ -259,16 +205,6 @@ The application includes **100 realistic leads** with:
 - **Scores**: 60-95 (with color-coded badges)
 - **Status**: New, Contacted, Qualified, Unqualified
 - **Sources**: Website, Referral, Cold Call, LinkedIn
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Make your changes
-4. Run linting (`pnpm lint-fix`)
-5. Commit your changes (`git commit -m 'Add amazing feature'`)
-6. Push to the branch (`git push origin feature/amazing-feature`)
-7. Open a Pull Request
 
 ### Development Guidelines
 
