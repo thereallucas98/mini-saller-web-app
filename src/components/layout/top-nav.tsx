@@ -1,10 +1,20 @@
-import { Bell, Calendar, LayoutDashboard, Mail, Users } from 'lucide-react'
+import {
+  Bell,
+  Calendar,
+  LayoutDashboard,
+  LogOut,
+  Mail,
+  Users,
+} from 'lucide-react'
 import { Link, useLocation } from 'react-router-dom'
+
+import { useAuth } from '~/contexts/auth-context'
 
 import { Button } from '../ui/button'
 
 export function TopNav() {
   const location = useLocation()
+  const { logout } = useAuth()
 
   const navItems = [
     { to: '/', icon: LayoutDashboard, label: 'Dashboard' },
@@ -70,6 +80,15 @@ export function TopNav() {
                 className="text-base-gray-300 hover:text-foreground"
               >
                 <Mail className="h-4 w-4" />
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                className="text-base-gray-300 hover:text-foreground"
+                onClick={logout}
+                title="Logout"
+              >
+                <LogOut className="h-4 w-4" />
               </Button>
             </div>
           </div>

@@ -5,25 +5,25 @@ import { useNavigate } from 'react-router-dom'
 import businessImage from '~/assets/business.png'
 import { Button } from '~/components/ui/button'
 import { Card, CardContent } from '~/components/ui/card'
+import { Form, FormError, FormFieldset, FormLabel } from '~/components/ui/form'
 import { Input } from '~/components/ui/input'
 import { useAuth } from '~/contexts/auth-context'
+import { type LoginFormData, useLoginForm } from '~/hooks/use-login-form'
 
 export const LoginPage = () => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const [isLoading, setIsLoading] = useState(false)
 
   const { login } = useAuth()
   const navigate = useNavigate()
+  const { form } = useLoginForm()
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+  const onSubmit = async (data: LoginFormData) => {
     setError('')
     setIsLoading(true)
 
     try {
-      const success = await login(email, password)
+      const success = await login(data.email, data.password)
       if (success) {
         navigate('/')
       } else {
@@ -60,38 +60,48 @@ export const LoginPage = () => {
                 LOGIN
               </h2>
 
-              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+              <Form onSubmit={form.handleSubmit(onSubmit)}>
                 {/* Email Field */}
-                <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 transform text-base-gray-400" />
-                  <Input
-                    type="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="border-border bg-background-secondary pl-10"
-                    required
-                  />
-                </div>
+                <FormFieldset>
+                  <FormLabel htmlFor="email">Email</FormLabel>
+                  <div className="relative">
+                    <Mail className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 transform text-base-gray-400" />
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder="Email"
+                      className="border-border bg-background-secondary pl-10"
+                      {...form.register('email')}
+                    />
+                  </div>
+                  {form.formState.errors.email && (
+                    <FormError>{form.formState.errors.email.message}</FormError>
+                  )}
+                </FormFieldset>
 
                 {/* Password Field */}
-                <div className="relative">
-                  <Lock className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 transform text-base-gray-400" />
-                  <Input
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="border-border bg-background-secondary pl-10"
-                    required
-                  />
-                </div>
+                <FormFieldset>
+                  <FormLabel htmlFor="password">Password</FormLabel>
+                  <div className="relative">
+                    <Lock className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 transform text-base-gray-400" />
+                    <Input
+                      id="password"
+                      type="password"
+                      placeholder="Password"
+                      className="border-border bg-background-secondary pl-10"
+                      {...form.register('password')}
+                    />
+                  </div>
+                  {form.formState.errors.password && (
+                    <FormError>
+                      {form.formState.errors.password.message}
+                    </FormError>
+                  )}
+                </FormFieldset>
 
                 {/* Error Message */}
                 {error && (
-                  <div className="text-center text-sm text-destructive">
-                    {error}
-                  </div>
+                  <FormError className="text-center">{error}</FormError>
                 )}
 
                 {/* Login Button */}
@@ -115,7 +125,7 @@ export const LoginPage = () => {
                     Create an account
                   </button>
                 </div>
-              </form>
+              </Form>
             </CardContent>
           </Card>
         </div>

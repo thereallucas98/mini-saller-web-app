@@ -1,13 +1,18 @@
-import { Bell, Calendar, Mail, MoreVertical } from 'lucide-react'
+import { Bell, Calendar, LogOut, Mail, MoreVertical } from 'lucide-react'
+
+import { useAuth } from '~/contexts/auth-context'
 
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '../ui/dropdown-menu'
 
 export function ActionsDropdown() {
+  const { logout } = useAuth()
+
   const actions = [
     {
       icon: Calendar,
@@ -52,6 +57,14 @@ export function ActionsDropdown() {
             <span>{action.label}</span>
           </DropdownMenuItem>
         ))}
+        <DropdownMenuSeparator />
+        <DropdownMenuItem
+          onClick={logout}
+          className="flex items-center space-x-3 text-destructive focus:text-destructive"
+        >
+          <LogOut className="h-4 w-4" />
+          <span>Logout</span>
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   )
