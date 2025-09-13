@@ -14,6 +14,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from '~/components/ui/select'
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '~/components/ui/table'
 import { useOpportunities } from '~/contexts/opportunities-provider'
 import { Lead, LeadStatus } from '~/types'
 
@@ -96,33 +104,39 @@ export const LeadsList = ({
     return (
       <>
         {/* Desktop Table */}
-        <div className="hidden w-full overflow-x-auto lg:block">
-          <table className="w-full">
-            <thead className="border-b border-border">
-              <tr>
-                <th className="p-4 text-left text-foreground">Name</th>
-                <th className="p-4 text-left text-foreground">Company</th>
-                <th className="p-4 text-left text-foreground">Email</th>
-                <th className="p-4 text-left text-foreground">Source</th>
-                <th className="p-4 text-left text-foreground">Score</th>
-                <th className="p-4 text-left text-foreground">Status</th>
-                <th className="p-4 text-left text-foreground">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
+        <div className="hidden lg:block">
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead className="text-foreground">Name</TableHead>
+                <TableHead className="text-foreground">Company</TableHead>
+                <TableHead className="text-foreground">Email</TableHead>
+                <TableHead className="text-foreground">Source</TableHead>
+                <TableHead className="text-foreground">Score</TableHead>
+                <TableHead className="text-foreground">Status</TableHead>
+                <TableHead className="text-foreground">Actions</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
               {leads.map((lead) => (
-                <tr
+                <TableRow
                   key={lead.id}
-                  className="cursor-pointer border-b border-border hover:bg-background-secondary"
+                  className="cursor-pointer hover:bg-background-secondary"
                   onClick={() => setSelectedLead(lead)}
                 >
-                  <td className="p-4 font-medium text-foreground">
+                  <TableCell className="font-medium text-foreground">
                     {lead.name}
-                  </td>
-                  <td className="p-4 text-base-gray-300">{lead.company}</td>
-                  <td className="p-4 text-base-gray-300">{lead.email}</td>
-                  <td className="p-4 text-base-gray-300">{lead.source}</td>
-                  <td className="p-4">
+                  </TableCell>
+                  <TableCell className="text-base-gray-300">
+                    {lead.company}
+                  </TableCell>
+                  <TableCell className="text-base-gray-300">
+                    {lead.email}
+                  </TableCell>
+                  <TableCell className="text-base-gray-300">
+                    {lead.source}
+                  </TableCell>
+                  <TableCell>
                     <Badge
                       variant={
                         lead.score >= 80
@@ -134,8 +148,8 @@ export const LeadsList = ({
                     >
                       {lead.score}
                     </Badge>
-                  </td>
-                  <td className="p-4">
+                  </TableCell>
+                  <TableCell>
                     <Badge
                       variant={
                         lead.status === 'Qualified'
@@ -149,8 +163,8 @@ export const LeadsList = ({
                     >
                       {lead.status}
                     </Badge>
-                  </td>
-                  <td className="p-4">
+                  </TableCell>
+                  <TableCell>
                     {hasOpportunityForLead(lead.id) ? (
                       <Badge variant="secondary" className="text-xs">
                         Converted
@@ -166,11 +180,11 @@ export const LeadsList = ({
                         Convert
                       </Button>
                     )}
-                  </td>
-                </tr>
+                  </TableCell>
+                </TableRow>
               ))}
-            </tbody>
-          </table>
+            </TableBody>
+          </Table>
         </div>
 
         {/* Mobile Cards */}

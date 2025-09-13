@@ -10,6 +10,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from '~/components/ui/select'
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '~/components/ui/table'
 import { useOpportunities } from '~/contexts/opportunities-provider'
 import { OpportunityStage } from '~/types'
 
@@ -106,98 +114,88 @@ export const OpportunitiesPage = () => {
           {viewMode === 'list' && (
             <Card>
               <CardContent className="p-0">
-                <div className="overflow-x-auto">
-                  <table className="w-full">
-                    <thead className="border-b border-border">
-                      <tr>
-                        <th className="p-4 text-left text-foreground">Name</th>
-                        <th className="p-4 text-left text-foreground">
-                          Account
-                        </th>
-                        <th className="p-4 text-left text-foreground">Stage</th>
-                        <th className="p-4 text-left text-foreground">
-                          Amount
-                        </th>
-                        <th className="p-4 text-left text-foreground">
-                          Actions
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {filteredOpportunities.map((opportunity) => (
-                        <tr
-                          key={opportunity.id}
-                          className="border-b border-border hover:bg-background-secondary"
-                        >
-                          <td className="p-4">
-                            <div>
-                              <div className="font-medium text-foreground">
-                                {opportunity.name}
-                              </div>
-                              <div className="text-sm text-base-gray-400">
-                                #{opportunity.id.slice(0, 8)}
-                              </div>
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead className="text-foreground">Name</TableHead>
+                      <TableHead className="text-foreground">Account</TableHead>
+                      <TableHead className="text-foreground">Stage</TableHead>
+                      <TableHead className="text-foreground">Amount</TableHead>
+                      <TableHead className="text-foreground">Actions</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {filteredOpportunities.map((opportunity) => (
+                      <TableRow
+                        key={opportunity.id}
+                        className="hover:bg-background-secondary"
+                      >
+                        <TableCell>
+                          <div>
+                            <div className="font-medium text-foreground">
+                              {opportunity.name}
                             </div>
-                          </td>
-                          <td className="p-4">
-                            <div className="flex items-center gap-2">
-                              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-xs font-medium text-primary-foreground">
-                                {opportunity.accountName[0]}
-                              </div>
-                              <span className="text-base-gray-300">
-                                {opportunity.accountName}
-                              </span>
+                            <div className="text-sm text-base-gray-400">
+                              #{opportunity.id.slice(0, 8)}
                             </div>
-                          </td>
-                          <td className="p-4">
-                            <Select
-                              value={opportunity.stage}
-                              onValueChange={(value) =>
-                                updateOpportunity(opportunity.id, {
-                                  stage: value as OpportunityStage,
-                                })
-                              }
-                            >
-                              <SelectTrigger className="w-32">
-                                <SelectValue />
-                              </SelectTrigger>
-                              <SelectContent>
-                                <SelectItem value="Prospecting">
-                                  Prospecting
-                                </SelectItem>
-                                <SelectItem value="Qualification">
-                                  Qualification
-                                </SelectItem>
-                                <SelectItem value="Proposal">
-                                  Proposal
-                                </SelectItem>
-                                <SelectItem value="Negotiation">
-                                  Negotiation
-                                </SelectItem>
-                                <SelectItem value="Closed Won">
-                                  Closed Won
-                                </SelectItem>
-                                <SelectItem value="Closed Lost">
-                                  Closed Lost
-                                </SelectItem>
-                              </SelectContent>
-                            </Select>
-                          </td>
-                          <td className="p-4 text-base-gray-300">
-                            {opportunity.amount
-                              ? `$${opportunity.amount.toLocaleString()}`
-                              : 'Not set'}
-                          </td>
-                          <td className="p-4">
-                            <Button variant="ghost" size="sm">
-                              <MoreHorizontal className="h-4 w-4" />
-                            </Button>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
+                          </div>
+                        </TableCell>
+                        <TableCell>
+                          <div className="flex items-center gap-2">
+                            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-xs font-medium text-primary-foreground">
+                              {opportunity.accountName[0]}
+                            </div>
+                            <span className="text-base-gray-300">
+                              {opportunity.accountName}
+                            </span>
+                          </div>
+                        </TableCell>
+                        <TableCell>
+                          <Select
+                            value={opportunity.stage}
+                            onValueChange={(value) =>
+                              updateOpportunity(opportunity.id, {
+                                stage: value as OpportunityStage,
+                              })
+                            }
+                          >
+                            <SelectTrigger className="w-32">
+                              <SelectValue />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectItem value="Prospecting">
+                                Prospecting
+                              </SelectItem>
+                              <SelectItem value="Qualification">
+                                Qualification
+                              </SelectItem>
+                              <SelectItem value="Proposal">Proposal</SelectItem>
+                              <SelectItem value="Negotiation">
+                                Negotiation
+                              </SelectItem>
+                              <SelectItem value="Closed Won">
+                                Closed Won
+                              </SelectItem>
+                              <SelectItem value="Closed Lost">
+                                Closed Lost
+                              </SelectItem>
+                            </SelectContent>
+                          </Select>
+                        </TableCell>
+                        <TableCell className="text-base-gray-300">
+                          {opportunity.amount
+                            ? `$${opportunity.amount.toLocaleString()}`
+                            : 'Not set'}
+                        </TableCell>
+                        <TableCell>
+                          <Button variant="ghost" size="sm">
+                            <MoreHorizontal className="h-4 w-4" />
+                          </Button>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
               </CardContent>
             </Card>
           )}
